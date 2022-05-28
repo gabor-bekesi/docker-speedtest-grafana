@@ -3,7 +3,7 @@ version: '2'
 services:
   influxdb:
     restart: always
-    image: influxdb:1.8
+    image: gaborbekesi/influxdb:1.8
     ports:
       - "8086:8086"
     volumes:
@@ -15,7 +15,7 @@ services:
 
   grafana:
     restart: always
-    image: grafana/grafana:6.7.2
+    image: gaborbekesi/grafana:6.7.2
     volumes:
       - "./docker/grafana/provisioning:/etc/grafana/provisioning"
     ports:
@@ -29,7 +29,7 @@ services:
 
   speedtest:
     restart: always
-    image: frdmn/speedtest-grafana:latest
+    image: gaborbekesi/speedtest:20220528
     container_name: speedtest
     environment:
       - "SPEEDTEST_INTERVAL=${SPEEDTEST_SPEEDTEST_INTERVAL}"
